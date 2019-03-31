@@ -1,4 +1,4 @@
-package br.edu.ifms.application;
+package br.edu.ifms.test;
 
 import br.edu.ifms.dao.DaoGenerico;
 import br.edu.ifms.model.Genero;
