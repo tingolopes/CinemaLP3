@@ -49,15 +49,12 @@ public class Principal extends javax.swing.JFrame {
                 listaGen); //Lista de generos
 
         new DaoGenerico<Filme>().saveOrUpdate(filme);
+        listarFilmes();
     }
 
     public void listarFilmes() {
         FilmeTableModel modelo = new FilmeTableModel();
-        List<Filme> l = new ArrayList<>();
-        l.add(new DaoGenerico<Filme>().findById(Filme.class, 1L)); //id estático por enquanto
-        l.add(new DaoGenerico<Filme>().findById(Filme.class, 9L)); //id estático por enquanto
-        l.add(new DaoGenerico<Filme>().findById(Filme.class, 17L)); //id estático por enquanto
-        l.add(new DaoGenerico<Filme>().findById(Filme.class, 20L)); //id estático por enquanto
+        List<Filme> l = new DaoGenerico<Filme>().listaTodos(Filme.class);
         modelo.setListaFilme(l);
         jTableFilmes.setModel(modelo);
     }
