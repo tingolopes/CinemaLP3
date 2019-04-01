@@ -69,12 +69,16 @@ public class LoginView extends javax.swing.JFrame {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Login");
         jPanelLoginSenha.add(jLabel1);
+
+        jTextLogin.setText("admin");
         jPanelLoginSenha.add(jTextLogin);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Senha");
         jPanelLoginSenha.add(jLabel2);
+
+        jPasswordSenha.setText("admin");
         jPanelLoginSenha.add(jPasswordSenha);
 
         jPanel1.add(jPanelLoginSenha);

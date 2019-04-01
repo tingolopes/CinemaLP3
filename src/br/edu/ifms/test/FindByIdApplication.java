@@ -8,21 +8,21 @@ public class FindByIdApplication {
 
     public static void main(String[] args) {
 
-        DaoGenerico<Artista> daoPessoa = new DaoGenerico<>();
-        DaoGenerico<Genero> daoCarro = new DaoGenerico<>();
+        DaoGenerico<Artista> daoArtista = new DaoGenerico<>();
+        DaoGenerico<Genero> daoGenero = new DaoGenerico<>();
 
-        Artista pessoa = daoPessoa.findById(Artista.class, 1L);
-        Genero carro = daoCarro.findById(Genero.class, 2L);
+        Artista artista = daoArtista.findById(Artista.class, 2L);
+        Genero genero = daoGenero.findById(Genero.class, 6L);
 
-        System.out.println("### Entidade Pessoa encontrada ###");
-        System.out.println("ID: " + pessoa.getId());
-        System.out.println("NOME: " + pessoa.getNome());
+        System.out.println("### Entidade artista encontrada ###");
+        System.out.println("ID: " + artista.getId());
+        System.out.println("NOME: " + artista.getNome());
 
         System.out.println("");
 
-        System.out.println("### Entidade Carro encontrada ###");
-        System.out.println("ID: " + carro.getId());
-        System.out.println("MODELO: " + carro.getNome());
+        System.out.println("### Entidade genero encontrada ###");
+        System.out.println("ID: " + genero.getId());
+        System.out.println("MODELO: " + genero.getNome());
 
     }
 

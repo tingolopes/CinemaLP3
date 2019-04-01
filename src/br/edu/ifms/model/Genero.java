@@ -42,6 +42,8 @@ public class Genero implements EntidadeBase {
     public Genero(String nome) {
         this.nome = nome;
     }
-    
+
+    public Genero() {
+    }
 
 }

@@ -30,8 +30,7 @@ public class InsertApplication {
         listGen.add(new Genero("Romance"));
 
         //Novo filme
-        Filme filme = new Filme();
-        filme.setNome("O vento levou");
+        Filme filme = new Filme("O vento levou", "Livre", "Um filme chato...", 96);
 
         //Filme recebe a lista de artistas e generos
         filme.setArtistas(listaArt);

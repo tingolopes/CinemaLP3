@@ -7,11 +7,10 @@ public class UpdateApplication {
 
     public static void main(String[] args) {
 
-        DaoGenerico<Artista> daoPessoa = new DaoGenerico<>();
-
-        Artista pessoa = daoPessoa.findById(Artista.class, 1L);
-        pessoa.setNome("Raphael Oliveira Neves");
-        daoPessoa.saveOrUpdate(pessoa);
+        DaoGenerico<Artista> daoArtista = new DaoGenerico<>();
+        Artista artista = daoArtista.findById(Artista.class, 2L);
+        artista.setNome("Raphael Oliveira Neves");
+        daoArtista.saveOrUpdate(artista);
         System.out.println("Entidade atualizada com sucesso.");
 
     }

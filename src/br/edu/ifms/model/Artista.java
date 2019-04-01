@@ -42,6 +42,9 @@ public class Artista implements EntidadeBase {
     public Artista(String nome) {
         this.nome = nome;
     }
+
+    public Artista() {
+    }
     
 
 }
