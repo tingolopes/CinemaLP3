@@ -81,7 +81,14 @@ public class Filme implements EntidadeBase {
         this.duracao = duracao;
     }
 
-    public List<Artista> getArtistas() {
+    public String getArtistas() {
+        String artistas = "";
+        for (int i = 0; i < this.artistas.size(); i++) {
+            artistas += this.artistas.get(i).getNome();
+            if(i < this.artistas.size()-1){
+                artistas += ", ";
+            }
+        }
         return artistas;
     }
 
@@ -89,7 +96,14 @@ public class Filme implements EntidadeBase {
         this.artistas = artistas;
     }
 
-    public List<Genero> getGeneros() {
+    public String getGeneros() {
+        String generos = "";
+        for (int i = 0; i < this.generos.size(); i++) {
+            generos += this.generos.get(i).getNome();
+            if(i < this.generos.size()-1){
+                generos += ", ";
+            }
+        }
         return generos;
     }
 

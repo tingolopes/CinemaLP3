@@ -22,7 +22,8 @@ public class FilmeTableModel extends AbstractTableModel {
         cabecalho.add("Nome");
         cabecalho.add("Classificação");
         cabecalho.add("Duração");
-        cabecalho.add("Genero");
+        cabecalho.add("Genero(s)");
+        cabecalho.add("Elenco");
     }
 
     @Override
@@ -55,6 +56,9 @@ public class FilmeTableModel extends AbstractTableModel {
             case 3:
                 //retornar o nome
                 return listaFilmes.get(rowIndex).getGeneros();
+            case 4:
+                //retornar o nome
+                return listaFilmes.get(rowIndex).getArtistas();
             default:
                 return null;
         }

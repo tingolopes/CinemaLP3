@@ -54,8 +54,10 @@ public class Principal extends javax.swing.JFrame {
     public void listarFilmes() {
         FilmeTableModel modelo = new FilmeTableModel();
         List<Filme> l = new ArrayList<>();
-        l.add(new DaoGenerico<Filme>().findById(Filme.class, 1L));
-        l.add(new DaoGenerico<Filme>().findById(Filme.class, 9L));
+        l.add(new DaoGenerico<Filme>().findById(Filme.class, 1L)); //id estático por enquanto
+        l.add(new DaoGenerico<Filme>().findById(Filme.class, 9L)); //id estático por enquanto
+        l.add(new DaoGenerico<Filme>().findById(Filme.class, 17L)); //id estático por enquanto
+        l.add(new DaoGenerico<Filme>().findById(Filme.class, 20L)); //id estático por enquanto
         modelo.setListaFilme(l);
         jTableFilmes.setModel(modelo);
     }
@@ -99,6 +101,7 @@ public class Principal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Cinépolis China");
+        setPreferredSize(new java.awt.Dimension(1024, 600));
         setResizable(false);
 
         jLabel1.setText("ID");
@@ -113,11 +116,11 @@ public class Principal extends javax.swing.JFrame {
         jPanelImagemFilme.setLayout(jPanelImagemFilmeLayout);
         jPanelImagemFilmeLayout.setHorizontalGroup(
             jPanelImagemFilmeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 305, Short.MAX_VALUE)
+            .addGap(0, 328, Short.MAX_VALUE)
         );
         jPanelImagemFilmeLayout.setVerticalGroup(
             jPanelImagemFilmeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 337, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
         jLabel3.setText("Sinopse");
@@ -247,7 +250,7 @@ public class Principal extends javax.swing.JFrame {
             jPanelFilmesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelFilmesLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanelFilmesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanelFilmesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanelFilmesLayout.createSequentialGroup()
                         .addGroup(jPanelFilmesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel1)
@@ -283,10 +286,10 @@ public class Principal extends javax.swing.JFrame {
                             .addComponent(jButtonEditar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jButtonDeletar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jButtonLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jPanelImagemFilme, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jPanelImagemFilme, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Filmes", jPanelFilmes);
@@ -295,11 +298,11 @@ public class Principal extends javax.swing.JFrame {
         jPanelGeneros.setLayout(jPanelGenerosLayout);
         jPanelGenerosLayout.setHorizontalGroup(
             jPanelGenerosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 775, Short.MAX_VALUE)
+            .addGap(0, 798, Short.MAX_VALUE)
         );
         jPanelGenerosLayout.setVerticalGroup(
             jPanelGenerosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 815, Short.MAX_VALUE)
+            .addGap(0, 490, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("Gêneros", jPanelGeneros);
@@ -308,11 +311,11 @@ public class Principal extends javax.swing.JFrame {
         jPanelArtistas.setLayout(jPanelArtistasLayout);
         jPanelArtistasLayout.setHorizontalGroup(
             jPanelArtistasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 775, Short.MAX_VALUE)
+            .addGap(0, 798, Short.MAX_VALUE)
         );
         jPanelArtistasLayout.setVerticalGroup(
             jPanelArtistasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 815, Short.MAX_VALUE)
+            .addGap(0, 490, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("Artistas", jPanelArtistas);
@@ -330,8 +333,7 @@ public class Principal extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTabbedPane1)
-                .addContainerGap())
+                .addComponent(jTabbedPane1))
         );
 
         pack();
