@@ -20,7 +20,15 @@ public class Principal extends javax.swing.JFrame {
      */
     public Principal() {
         initComponents();
-        listarFilmes();
+        jTableFilmes.setModel(new FilmeTableModel());
+        Runnable r = new Runnable() {
+            @Override
+            public void run() {
+                populaTabela();
+            }
+        };
+        Thread t = new Thread(r);
+        t.start();
     }
 
     public void cadastrarFilme() {
@@ -53,18 +61,18 @@ public class Principal extends javax.swing.JFrame {
                 listaGen); //Lista de generos
 
         new DaoGenerico<Filme>().saveOrUpdate(filme);
-        listarFilmes();
+        populaTabela();
     }
 
-    public void listarFilmes() {
+    public void populaTabela() {
         List<Filme> l = new DaoGenerico<Filme>().listaTodos(Filme.class);
         FilmeTableModel modelo = new FilmeTableModel();
         modelo.setListaFilme(l);
         jTableFilmes.setModel(modelo);
-        resizeColumnWidth(jTableFilmes);
+        configurarTabela(jTableFilmes);
     }
 
-    public void resizeColumnWidth(JTable table) {
+    public void configurarTabela(JTable table) {
         final TableColumnModel columnModel = table.getColumnModel();
         for (int column = 0; column < table.getColumnCount(); column++) {
             int width = 15; // Min width
@@ -114,6 +122,7 @@ public class Principal extends javax.swing.JFrame {
         jSlider1 = new javax.swing.JSlider();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableFilmes = new javax.swing.JTable();
+        jButton1 = new javax.swing.JButton();
         jPanelGeneros = new javax.swing.JPanel();
         jPanelArtistas = new javax.swing.JPanel();
 
@@ -215,6 +224,13 @@ public class Principal extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTableFilmes);
 
+        jButton1.setText("Atualizar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanelFilmesLayout = new javax.swing.GroupLayout(jPanelFilmes);
         jPanelFilmes.setLayout(jPanelFilmesLayout);
         jPanelFilmesLayout.setHorizontalGroup(
@@ -254,7 +270,9 @@ public class Principal extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButtonDeletar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButtonLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jButtonLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton1))
                     .addGroup(jPanelFilmesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(jTextFieldGeneros)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 432, Short.MAX_VALUE)
@@ -303,7 +321,8 @@ public class Principal extends javax.swing.JFrame {
                             .addComponent(jButtonNovo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jButtonEditar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jButtonDeletar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButtonLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jButtonLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton1)))
                     .addComponent(jPanelImagemFilme, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -371,7 +390,12 @@ public class Principal extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(this, "Filme cadastrado!", "Aviso", JOptionPane.PLAIN_MESSAGE);
     }//GEN-LAST:event_jButtonNovoActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        populaTabela();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButtonDeletar;
     private javax.swing.JButton jButtonEditar;
     private javax.swing.JButton jButtonLimpar;
