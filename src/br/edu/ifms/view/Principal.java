@@ -53,8 +53,8 @@ public class Principal extends javax.swing.JFrame {
     }
 
     public void listarFilmes() {
-        FilmeTableModel modelo = new FilmeTableModel();
         List<Filme> l = new DaoGenerico<Filme>().listaTodos(Filme.class);
+        FilmeTableModel modelo = new FilmeTableModel();
         modelo.setListaFilme(l);
         jTableFilmes.setModel(modelo);
     }
