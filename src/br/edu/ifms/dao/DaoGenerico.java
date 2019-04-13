@@ -10,15 +10,20 @@ public class DaoGenerico<T extends EntidadeBase> {
 
     private static EntityManager manager = ConnectionFactory.getEntityManager();
 
-    public T findById(Class<T> clazz, Long id) {
-        return manager.find(clazz, id);
-    }
-
     public List<T> listaTodos(Class<T> clazz) {
         CriteriaQuery<T> query = manager.getCriteriaBuilder().createQuery(clazz);
         query.select(query.from(clazz));
         List<T> lista = manager.createQuery(query).getResultList();
         return lista;
+    }
+    
+    public List<T> findByName(Class<T> clazz){
+        CriteriaQuery<T> query = manager.getCriteriaBuilder().createQuery(clazz);
+        return null;
+    }
+
+    public T findById(Class<T> clazz, Long id) {
+        return manager.find(clazz, id);
     }
 
     public void saveOrUpdate(T obj) {
