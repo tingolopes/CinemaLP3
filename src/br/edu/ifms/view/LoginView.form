@@ -98,6 +98,11 @@
         </Container>
         <Container class="javax.swing.JPanel" name="jPanelBotoes">
           <SubComponents>
+            <Component class="javax.swing.JButton" name="jButtonLogin">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Logar"/>
+              </Properties>
+            </Component>
             <Component class="javax.swing.JButton" name="jButtonSair">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Sair"/>
@@ -105,11 +110,6 @@
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonSairActionPerformed"/>
               </Events>
-            </Component>
-            <Component class="javax.swing.JButton" name="jButtonLogin">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Logar"/>
-              </Properties>
             </Component>
           </SubComponents>
           <LayoutCode>
@@ -183,11 +183,11 @@
                 <CodeMethod name="add" class="java.awt.Container" parameterTypes="java.awt.Component"/>
               </StatementProvider>
               <Parameters>
-                <CodeExpression id="7_jButtonSair">
-                  <CodeVariable name="jButtonSair" type="8194" declaredType="javax.swing.JButton"/>
+                <CodeExpression id="7_jButtonLogin">
+                  <CodeVariable name="jButtonLogin" type="8194" declaredType="javax.swing.JButton"/>
                   <ExpressionOrigin>
                     <ExpressionProvider type="ComponentRef">
-                      <ComponentRef name="jButtonSair"/>
+                      <ComponentRef name="jButtonLogin"/>
                     </ExpressionProvider>
                   </ExpressionOrigin>
                 </CodeExpression>
@@ -199,11 +199,11 @@
                 <CodeMethod name="add" class="java.awt.Container" parameterTypes="java.awt.Component"/>
               </StatementProvider>
               <Parameters>
-                <CodeExpression id="8_jButtonLogin">
-                  <CodeVariable name="jButtonLogin" type="8194" declaredType="javax.swing.JButton"/>
+                <CodeExpression id="8_jButtonSair">
+                  <CodeVariable name="jButtonSair" type="8194" declaredType="javax.swing.JButton"/>
                   <ExpressionOrigin>
                     <ExpressionProvider type="ComponentRef">
-                      <ComponentRef name="jButtonLogin"/>
+                      <ComponentRef name="jButtonSair"/>
                     </ExpressionProvider>
                   </ExpressionOrigin>
                 </CodeExpression>

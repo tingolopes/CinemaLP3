@@ -42,8 +42,8 @@ public class LoginView extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jPasswordSenha = new javax.swing.JPasswordField();
         jPanelBotoes = new javax.swing.JPanel();
-        jButtonSair = new javax.swing.JButton();
         jButtonLogin = new javax.swing.JButton();
+        jButtonSair = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Cinépolis LP3");
@@ -87,6 +87,9 @@ public class LoginView extends javax.swing.JFrame {
         flowLayout1.setAlignOnBaseline(true);
         jPanelBotoes.setLayout(flowLayout1);
 
+        jButtonLogin.setText("Logar");
+        jPanelBotoes.add(jButtonLogin);
+
         jButtonSair.setText("Sair");
         jButtonSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -94,9 +97,6 @@ public class LoginView extends javax.swing.JFrame {
             }
         });
         jPanelBotoes.add(jButtonSair);
-
-        jButtonLogin.setText("Logar");
-        jPanelBotoes.add(jButtonLogin);
 
         jPanel1.add(jPanelBotoes);
 
